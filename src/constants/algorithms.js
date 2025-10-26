@@ -7,8 +7,8 @@ export const MAIN_ALGORITHMS = [
     subtitle: "O Quebrador de Criptografia",
     category: "Criptografia",
     icon: Key,
-    color: "text-red-600",
-    bgColor: "bg-red-100 dark:bg-red-950/30",
+    color: "text-pink-600 dark:text-pink-400",
+    bgColor: "bg-gradient-to-br from-pink-100 to-rose-100 dark:from-pink-950/40 dark:to-rose-950/40",
     badgeVariant: "destructive",
     function:
       "Fatorar números inteiros muito grandes em seus fatores primos (ex: 15 → 3 × 5)",
@@ -28,8 +28,8 @@ export const MAIN_ALGORITHMS = [
     subtitle: "A Super-Busca",
     category: "Busca",
     icon: Search,
-    color: "text-blue-600",
-    bgColor: "bg-blue-100 dark:bg-blue-950/30",
+    color: "text-cyan-600 dark:text-cyan-400",
+    bgColor: "bg-gradient-to-br from-cyan-100 to-blue-100 dark:from-cyan-950/40 dark:to-blue-950/40",
     badgeVariant: "default",
     function:
       "Encontrar um item em uma lista desordenada em √N passos (vs N/2 clássico)",
@@ -50,8 +50,8 @@ export const MAIN_ALGORITHMS = [
     subtitle: "Imitando a Natureza",
     category: "Simulação",
     icon: Atom,
-    color: "text-purple-600",
-    bgColor: "bg-purple-100 dark:bg-purple-950/30",
+    color: "text-purple-600 dark:text-purple-400",
+    bgColor: "bg-gradient-to-br from-purple-100 to-violet-100 dark:from-purple-950/40 dark:to-violet-950/40",
     function:
       "Modelar o comportamento de moléculas e materiais em nível atômico com altíssima precisão",
     impacts: [
@@ -74,8 +74,8 @@ export const HYBRID_ALGORITHMS = [
     subtitle: "Variational Quantum Eigensolver",
     category: "Era NISQ",
     icon: FlaskConical,
-    color: "text-green-600",
-    bgColor: "bg-green-100 dark:bg-green-950/30",
+    color: "text-emerald-600 dark:text-emerald-400",
+    bgColor: "bg-gradient-to-br from-emerald-100 to-green-100 dark:from-emerald-950/40 dark:to-green-950/40",
     function: "Encontra a energia mínima de uma molécula (estado fundamental)",
     impacts: [
       "Algoritmo híbrido quântico-clássico",
@@ -93,8 +93,8 @@ export const HYBRID_ALGORITHMS = [
     subtitle: "Quantum Approximate Optimization",
     category: "Era NISQ",
     icon: Zap,
-    color: "text-yellow-600",
-    bgColor: "bg-yellow-100 dark:bg-yellow-950/30",
+    color: "text-amber-600 dark:text-amber-400",
+    bgColor: "bg-gradient-to-br from-amber-100 to-orange-100 dark:from-amber-950/40 dark:to-orange-950/40",
     function: "Encontra soluções aproximadas para problemas de otimização complexos",
     impacts: [
       "Algoritmo híbrido para otimização combinatória",
@@ -114,23 +114,23 @@ export const QUANTUM_CONCEPTS = [
     title: "Qubits",
     description:
       "Diferente dos bits clássicos (0 ou 1), os qubits podem existir em múltiplos estados simultaneamente.",
-    color: "text-purple-600",
-    bgColor: "bg-purple-100 dark:bg-purple-950/30",
+    color: "text-purple-600 dark:text-purple-400",
+    bgColor: "bg-gradient-to-br from-purple-100 to-fuchsia-100 dark:from-purple-950/40 dark:to-fuchsia-950/40",
   },
   {
     icon: FlaskConical,
     title: "Superposição",
     description:
       "Permite que um qubit represente 0 e 1 ao mesmo tempo, explorando múltiplas soluções paralelamente.",
-    color: "text-blue-600",
-    bgColor: "bg-blue-100 dark:bg-blue-950/30",
+    color: "text-blue-600 dark:text-blue-400",
+    bgColor: "bg-gradient-to-br from-blue-100 to-indigo-100 dark:from-blue-950/40 dark:to-indigo-950/40",
   },
   {
     icon: Zap,
     title: "Emaranhamento",
     description:
       "Qubits interligados de forma complexa, onde o estado de um afeta instantaneamente o outro.",
-    color: "text-cyan-600",
-    bgColor: "bg-cyan-100 dark:bg-cyan-950/30",
+    color: "text-cyan-600 dark:text-cyan-400",
+    bgColor: "bg-gradient-to-br from-cyan-100 to-teal-100 dark:from-cyan-950/40 dark:to-teal-950/40",
   },
 ];
