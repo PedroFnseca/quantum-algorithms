@@ -79,7 +79,6 @@ export function QuantumGraphBackground() {
     };
     window.addEventListener('mousemove', handleMouseMove);
 
-    // Animação
     let time = 0;
     const animate = () => {
       time += 0.01;

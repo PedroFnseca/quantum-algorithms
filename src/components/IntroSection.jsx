@@ -1,5 +1,6 @@
 import { Card, CardContent } from "./ui/card";
 import { Badge } from "./ui/badge";
+import { AnimatedSection } from "./AnimatedSection";
 import { QUANTUM_CONCEPTS } from "../constants/algorithms";
 
 export function IntroSection() {
@@ -10,7 +11,7 @@ export function IntroSection() {
         <div className="absolute bottom-20 right-10 h-64 w-64 rounded-full bg-cyan-500/10 dark:bg-cyan-500/5 blur-3xl" />
       </div>
 
-      <div className="mx-auto max-w-3xl text-center">
+      <AnimatedSection className="mx-auto max-w-3xl text-center">
         <Badge variant="outline" className="mb-4 border-purple-300 dark:border-purple-400 text-purple-700 dark:text-purple-200 bg-white/90 dark:bg-purple-900/60 font-semibold shadow-lg">
           Fundamentos
         </Badge>
@@ -23,26 +24,31 @@ export function IntroSection() {
           computação quântica para resolver problemas que são intratáveis para os
           computadores clássicos.
         </p>
-      </div>
+      </AnimatedSection>
 
       <div className="grid gap-6 md:grid-cols-3">
-        {QUANTUM_CONCEPTS.map((concept) => {
+        {QUANTUM_CONCEPTS.map((concept, index) => {
           const Icon = concept.icon;
           return (
-            <Card
+            <AnimatedSection 
               key={concept.title}
-              className="border-2 transition-all hover:shadow-lg hover:shadow-purple-500/20 dark:hover:shadow-purple-500/30 hover:-translate-y-1 hover:border-fuchsia-300 dark:hover:border-fuchsia-700"
+              delay={index * 0.1}
+              direction="up"
             >
-              <CardContent className="p-6">
-                <div
-                  className={`mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg ${concept.bgColor} shadow-lg transition-transform hover:scale-110`}
-                >
-                  <Icon className={`h-6 w-6 ${concept.color}`} />
-                </div>
-                <h3 className="mb-2 text-xl font-bold text-gray-900 dark:text-white">{concept.title}</h3>
-                <p className="text-gray-700 dark:text-gray-200 leading-relaxed">{concept.description}</p>
-              </CardContent>
-            </Card>
+              <Card
+                className="border-2 transition-all hover:shadow-lg hover:shadow-purple-500/20 dark:hover:shadow-purple-500/30 hover:-translate-y-1 hover:border-fuchsia-300 dark:hover:border-fuchsia-700 h-full"
+              >
+                <CardContent className="p-6">
+                  <div
+                    className={`mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg ${concept.bgColor} shadow-lg transition-transform hover:scale-110`}
+                  >
+                    <Icon className={`h-6 w-6 ${concept.color}`} />
+                  </div>
+                  <h3 className="mb-2 text-xl font-bold text-gray-900 dark:text-white">{concept.title}</h3>
+                  <p className="text-gray-700 dark:text-gray-200 leading-relaxed">{concept.description}</p>
+                </CardContent>
+              </Card>
+            </AnimatedSection>
           );
         })}
       </div>

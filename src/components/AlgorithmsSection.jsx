@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { AlgorithmCard } from "./AlgorithmCard";
+import { AnimatedSection } from "./AnimatedSection";
 import { Badge } from "./ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
 import { MAIN_ALGORITHMS, HYBRID_ALGORITHMS } from "../constants/algorithms";
@@ -19,7 +20,7 @@ export function AlgorithmsSection() {
       </div>
 
       <div className="container">
-        <div className="mx-auto max-w-3xl text-center mb-12">
+        <AnimatedSection className="mx-auto max-w-3xl text-center mb-12">
           <Badge variant="outline" className="mb-4 border-purple-300 dark:border-purple-400 text-purple-700 dark:text-purple-200 bg-white/90 dark:bg-purple-900/60 font-semibold shadow-lg">
             Algoritmos
           </Badge>
@@ -29,7 +30,7 @@ export function AlgorithmsSection() {
           <p className="text-lg text-gray-100 dark:text-gray-100 leading-relaxed drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)] font-medium">
             Conheça os algoritmos que estão moldando o futuro da computação
           </p>
-        </div>
+        </AnimatedSection>
 
         <Tabs defaultValue="main" className="w-full">
           <TabsList className="grid w-full max-w-md mx-auto grid-cols-2 mb-8 bg-gradient-to-r from-purple-100 to-cyan-100 dark:from-purple-950/50 dark:to-cyan-950/50 border border-purple-300 dark:border-purple-700">
@@ -43,36 +44,48 @@ export function AlgorithmsSection() {
 
           <TabsContent value="main" className="mt-8">
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-              {MAIN_ALGORITHMS.map((algorithm) => (
-                <AlgorithmCard
+              {MAIN_ALGORITHMS.map((algorithm, index) => (
+                <AnimatedSection 
                   key={algorithm.id}
-                  algorithm={algorithm}
-                  onLearnMore={handleLearnMore}
-                />
+                  delay={index * 0.1}
+                  direction="up"
+                >
+                  <AlgorithmCard
+                    algorithm={algorithm}
+                    onLearnMore={handleLearnMore}
+                  />
+                </AnimatedSection>
               ))}
             </div>
           </TabsContent>
 
           <TabsContent value="hybrid" className="mt-8">
             <div className="mx-auto max-w-5xl">
-              <div className="mb-8 rounded-lg border-2 border-purple-400 dark:border-purple-500 bg-white/10 dark:bg-purple-900/40 backdrop-blur-sm p-6 shadow-lg shadow-purple-500/30">
-                <h3 className="mb-2 text-xl font-bold text-white drop-shadow-[0_2px_15px_rgba(168,85,247,0.6)]">
-                  Era NISQ - Computadores Quânticos Ruidosos de Escala Intermediária
-                </h3>
-                <p className="text-gray-100 dark:text-gray-100 leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)] font-medium">
-                  Na era atual, algoritmos híbridos que combinam processadores
-                  quânticos e clássicos são fundamentais para obter resultados
-                  práticos com a tecnologia disponível hoje.
-                </p>
-              </div>
+              <AnimatedSection>
+                <div className="mb-8 rounded-lg border-2 border-purple-400 dark:border-purple-500 bg-white/10 dark:bg-purple-900/40 backdrop-blur-sm p-6 shadow-lg shadow-purple-500/30">
+                  <h3 className="mb-2 text-xl font-bold text-white drop-shadow-[0_2px_15px_rgba(168,85,247,0.6)]">
+                    Era NISQ - Computadores Quânticos Ruidosos de Escala Intermediária
+                  </h3>
+                  <p className="text-gray-100 dark:text-gray-100 leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)] font-medium">
+                    Na era atual, algoritmos híbridos que combinam processadores
+                    quânticos e clássicos são fundamentais para obter resultados
+                    práticos com a tecnologia disponível hoje.
+                  </p>
+                </div>
+              </AnimatedSection>
 
               <div className="grid gap-8 md:grid-cols-2">
-                {HYBRID_ALGORITHMS.map((algorithm) => (
-                  <AlgorithmCard
+                {HYBRID_ALGORITHMS.map((algorithm, index) => (
+                  <AnimatedSection 
                     key={algorithm.id}
-                    algorithm={algorithm}
-                    onLearnMore={handleLearnMore}
-                  />
+                    delay={index * 0.15}
+                    direction="up"
+                  >
+                    <AlgorithmCard
+                      algorithm={algorithm}
+                      onLearnMore={handleLearnMore}
+                    />
+                  </AnimatedSection>
                 ))}
               </div>
             </div>

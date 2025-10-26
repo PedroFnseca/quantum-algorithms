@@ -7,3 +7,5 @@ export { Footer } from "./Footer";
 export { ScrollToTop } from "./ScrollToTop";
 export { QuantumGraphBackground } from "./QuantumGraphBackground";
 export { FloatingParticles } from "./FloatingParticles";
+export { PageTransition } from "./PageTransition";
+export { AnimatedSection } from "./AnimatedSection";
