@@ -5,3 +5,5 @@ export { AlgorithmsSection } from "./AlgorithmsSection";
 export { AlgorithmCard } from "./AlgorithmCard";
 export { Footer } from "./Footer";
 export { ScrollToTop } from "./ScrollToTop";
+export { QuantumGraphBackground } from "./QuantumGraphBackground";
+export { FloatingParticles } from "./FloatingParticles";

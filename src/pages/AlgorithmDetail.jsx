@@ -22,8 +22,11 @@ export function AlgorithmDetail() {
   if (!algorithm) {
     return (
       <div className="container py-16 text-center">
-        <h1 className="text-2xl font-bold mb-4">Algoritmo não encontrado</h1>
-        <Button onClick={() => navigate("/")}>
+        <h1 className="text-2xl font-bold mb-4 text-white drop-shadow-[0_2px_15px_rgba(168,85,247,0.6)]">Algoritmo não encontrado</h1>
+        <Button 
+          onClick={() => navigate("/")}
+          className="bg-gradient-to-r from-purple-600 to-cyan-500 hover:from-purple-700 hover:to-cyan-600 text-white shadow-lg shadow-purple-500/50 hover:shadow-purple-500/70 border-0"
+        >
           <ArrowLeft className="mr-2 h-4 w-4" />
           Voltar para Home
         </Button>
@@ -34,11 +37,11 @@ export function AlgorithmDetail() {
   const Icon = algorithm.icon;
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-muted/30 via-purple-50/20 to-cyan-50/20 dark:via-purple-950/10 dark:to-cyan-950/10 py-12">
+    <div className="min-h-screen py-12">
       <div className="container max-w-5xl">
         <Button
           variant="ghost"
-          className="mb-8"
+          className="mb-8 text-white hover:bg-purple-500/20 hover:text-purple-200 border border-purple-400/50 backdrop-blur-sm"
           onClick={() => navigate("/")}
         >
           <ArrowLeft className="mr-2 h-4 w-4" />
@@ -54,7 +57,7 @@ export function AlgorithmDetail() {
               <Badge className="mb-3" variant={algorithm.badgeVariant || "default"}>
                 {algorithm.category}
               </Badge>
-              <h1 className="text-4xl font-bold mb-2 bg-gradient-to-r from-purple-600 via-pink-500 to-cyan-600 dark:from-purple-400 dark:via-pink-400 dark:to-cyan-400 bg-clip-text text-transparent">
+              <h1 className="text-4xl font-bold mb-2 bg-gradient-to-r from-purple-600 via-fuchsia-500 to-cyan-600 dark:from-purple-400 dark:via-fuchsia-400 dark:to-cyan-400 bg-clip-text text-transparent">
                 {algorithm.title}
               </h1>
               <p className="text-xl text-muted-foreground mb-4">
@@ -101,10 +104,10 @@ export function AlgorithmDetail() {
           </CardContent>
         </Card>
 
-        <Card className="mb-8 border-2 border-pink-200 dark:border-pink-800">
+        <Card className="mb-8 border-2 border-fuchsia-200 dark:border-fuchsia-800">
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-2xl">
-              <Cpu className="h-6 w-6 text-pink-600 dark:text-pink-400" />
+              <Cpu className="h-6 w-6 text-fuchsia-600 dark:text-fuchsia-400" />
               Exemplos Práticos
             </CardTitle>
           </CardHeader>
@@ -115,7 +118,7 @@ export function AlgorithmDetail() {
                   <p className="text-lg">{example}</p>
                 </div>
               ))}
-              <div className="mt-6 p-6 rounded-lg bg-gradient-to-r from-purple-50 to-pink-50 dark:from-purple-950/20 dark:to-pink-950/20 border-2 border-purple-300 dark:border-purple-700">
+              <div className="mt-6 p-6 rounded-lg bg-gradient-to-r from-purple-50 to-fuchsia-50 dark:from-purple-950/20 dark:to-fuchsia-950/20 border-2 border-purple-300 dark:border-purple-700">
                 <p className="text-muted-foreground">
                   Esta seção conterá exemplos mais detalhados, possivelmente com
                   visualizações, diagramas ou simulações interativas.
@@ -125,10 +128,10 @@ export function AlgorithmDetail() {
           </CardContent>
         </Card>
 
-        <Card className="mb-8 border-2 border-emerald-200 dark:border-emerald-800">
+        <Card className="mb-8 border-2 border-violet-200 dark:border-violet-800">
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-2xl">
-              <Code className="h-6 w-6 text-emerald-600 dark:text-emerald-400" />
+              <Code className="h-6 w-6 text-violet-600 dark:text-violet-400" />
               Exemplo de Implementação
             </CardTitle>
           </CardHeader>

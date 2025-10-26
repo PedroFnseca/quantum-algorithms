@@ -51,13 +51,11 @@ export default {
           foreground: "hsl(var(--card-foreground))",
         },
         quantum: {
-          purple: "hsl(270, 80%, 60%)",
-          cyan: "hsl(190, 95%, 55%)",
-          green: "hsl(160, 85%, 50%)",
-          magenta: "hsl(320, 85%, 60%)",
-          amber: "hsl(40, 95%, 60%)",
-          blue: "hsl(220, 90%, 60%)",
-          pink: "hsl(340, 90%, 65%)",
+          purple: "hsl(270, 70%, 60%)",
+          violet: "hsl(260, 65%, 65%)",
+          fuchsia: "hsl(320, 85%, 60%)",
+          magenta: "hsl(328, 85%, 60%)",
+          cyan: "hsl(189, 94%, 43%)",
         },
       },
       borderRadius: {

@@ -8,7 +8,7 @@ import { AlgorithmDetail } from "./pages/AlgorithmDetail";
 function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-gradient-to-b from-background via-purple-50/30 to-cyan-50/30 dark:via-purple-950/10 dark:to-cyan-950/10 font-sans antialiased">
+      <div className="min-h-screen font-sans antialiased">
         <Header />
         <main>
           <Routes>

@@ -7,7 +7,7 @@ export function AlgorithmCard({ algorithm, onLearnMore }) {
   const Icon = algorithm.icon;
 
   return (
-    <Card className="group h-full transition-all hover:shadow-xl hover:shadow-purple-500/20 dark:hover:shadow-purple-500/40 hover:-translate-y-1 border-2 hover:border-purple-300 dark:hover:border-purple-700">
+    <Card className="group h-full transition-all hover:shadow-xl hover:shadow-purple-500/20 dark:hover:shadow-purple-500/40 hover:-translate-y-1 border-2 hover:border-fuchsia-300 dark:hover:border-fuchsia-700">
       <CardHeader>
         <div className="mb-4 flex items-start justify-between">
           <div
@@ -19,28 +19,28 @@ export function AlgorithmCard({ algorithm, onLearnMore }) {
             {algorithm.category}
           </Badge>
         </div>
-        <CardTitle className="text-2xl bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text">{algorithm.title}</CardTitle>
-        <CardDescription className="text-base">
+        <CardTitle className="text-2xl font-bold text-gray-900 dark:text-white">{algorithm.title}</CardTitle>
+        <CardDescription className="text-base text-gray-600 dark:text-gray-300 font-medium">
           {algorithm.subtitle}
         </CardDescription>
       </CardHeader>
       <CardContent className="space-y-4">
         <div>
-          <h4 className="mb-2 font-semibold text-sm text-muted-foreground">
+          <h4 className="mb-2 font-bold text-sm text-purple-700 dark:text-purple-300 tracking-wide">
             FUNÇÃO PRINCIPAL
           </h4>
-          <p className="text-sm">{algorithm.function}</p>
+          <p className="text-sm text-gray-700 dark:text-gray-200 leading-relaxed">{algorithm.function}</p>
         </div>
 
         <div>
-          <h4 className="mb-2 font-semibold text-sm text-muted-foreground">
+          <h4 className="mb-2 font-bold text-sm text-purple-700 dark:text-purple-300 tracking-wide">
             IMPACTO
           </h4>
           <ul className="space-y-2 text-sm">
             {algorithm.impacts.map((impact, index) => (
               <li key={index} className="flex items-start gap-2">
-                <ChevronRight className="mt-0.5 h-4 w-4 flex-shrink-0 text-purple-600 dark:text-purple-400" />
-                <span>{impact}</span>
+                <ChevronRight className="mt-0.5 h-4 w-4 flex-shrink-0 text-fuchsia-600 dark:text-fuchsia-300" />
+                <span className="text-gray-700 dark:text-gray-200 leading-relaxed">{impact}</span>
               </li>
             ))}
           </ul>
@@ -48,16 +48,16 @@ export function AlgorithmCard({ algorithm, onLearnMore }) {
 
         {algorithm.examples && (
           <div>
-            <h4 className="mb-2 font-semibold text-sm text-muted-foreground">
+            <h4 className="mb-2 font-bold text-sm text-purple-700 dark:text-purple-300 tracking-wide">
               EXEMPLOS PRÁTICOS
             </h4>
             <ul className="space-y-2 text-sm">
               {algorithm.examples.map((example, index) => (
                 <li key={index} className="flex items-start gap-2">
-                  <span className="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-purple-500 to-cyan-500 text-xs font-medium text-white shadow-md">
+                  <span className="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-purple-500 via-fuchsia-500 to-cyan-500 text-xs font-bold text-white shadow-md">
                     {index + 1}
                   </span>
-                  <span>{example}</span>
+                  <span className="text-gray-700 dark:text-gray-200 leading-relaxed">{example}</span>
                 </li>
               ))}
             </ul>
