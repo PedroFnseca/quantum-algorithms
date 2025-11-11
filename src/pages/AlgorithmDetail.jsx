@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import { ArrowLeft, BookOpen, Lightbulb, Cpu, Code } from "lucide-react";
 // eslint-disable-next-line
 import { motion } from "framer-motion";
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { PageTransition } from "../components/PageTransition";
 import { AnimatedSection } from "../components/AnimatedSection";
 import { Badge } from "../components/ui/badge";
@@ -98,9 +100,8 @@ export function AlgorithmDetail() {
                 </CardTitle>
               </CardHeader>
               <CardContent className="prose dark:prose-invert max-w-none">
-                <p className="text-muted-foreground text-lg">
-                  Esta seção conterá uma explicação detalhada de como o algoritmo funciona,
-                  incluindo os princípios quânticos envolvidos e o passo a passo do processo.
+                <p className="text-muted-foreground text-lg leading-relaxed">
+                  {algorithm.description || "Esta seção conterá uma explicação detalhada de como o algoritmo funciona, incluindo os princípios quânticos envolvidos e o passo a passo do processo."}
                 </p>
               </CardContent>
             </Card>
@@ -156,12 +157,6 @@ export function AlgorithmDetail() {
                       <p className="text-lg">{example}</p>
                     </motion.div>
                   ))}
-                  <div className="mt-6 p-6 rounded-lg bg-gradient-to-r from-purple-50 to-fuchsia-50 dark:from-purple-950/20 dark:to-fuchsia-950/20 border-2 border-purple-300 dark:border-purple-700">
-                    <p className="text-muted-foreground">
-                      Esta seção conterá exemplos mais detalhados, possivelmente com
-                      visualizações, diagramas ou simulações interativas.
-                    </p>
-                  </div>
                 </div>
               </CardContent>
             </Card>
@@ -176,8 +171,42 @@ export function AlgorithmDetail() {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="bg-slate-900 text-slate-50 p-6 rounded-lg font-mono text-sm overflow-x-auto">
-                  <pre>
+                {algorithm.codeExample ? (
+                  <>
+                    <div className="rounded-lg overflow-hidden shadow-lg">
+                      <SyntaxHighlighter
+                        language="python"
+                        style={vscDarkPlus}
+                        customStyle={{
+                          margin: 0,
+                          padding: '1.5rem',
+                          fontSize: '0.875rem',
+                          lineHeight: '1.5',
+                        }}
+                        showLineNumbers={true}
+                      >
+                        {algorithm.codeExample}
+                      </SyntaxHighlighter>
+                    </div>
+                    <p className="text-muted-foreground mt-4">
+                      Este é um exemplo funcional de implementação usando Qiskit. 
+                      Você pode executá-lo em um ambiente Python com Qiskit instalado.
+                    </p>
+                  </>
+                ) : (
+                  <>
+                    <div className="rounded-lg overflow-hidden shadow-lg">
+                      <SyntaxHighlighter
+                        language="python"
+                        style={vscDarkPlus}
+                        customStyle={{
+                          margin: 0,
+                          padding: '1.5rem',
+                          fontSize: '0.875rem',
+                          lineHeight: '1.5',
+                        }}
+                        showLineNumbers={true}
+                      >
 {`# TODO: Adicionar exemplo de código
 # Este será um exemplo de implementação usando Qiskit ou similar
 
@@ -192,11 +221,13 @@ qc = QuantumCircuit(2)
 
 # Executar
 # ...`}
-                  </pre>
-                </div>
-                <p className="text-muted-foreground mt-4">
-                  Em breve, exemplos de código comentados e explicados passo a passo.
-                </p>
+                      </SyntaxHighlighter>
+                    </div>
+                    <p className="text-muted-foreground mt-4">
+                      Em breve, exemplos de código comentados e explicados passo a passo.
+                    </p>
+                  </>
+                )}
               </CardContent>
             </Card>
           </AnimatedSection>
@@ -207,18 +238,48 @@ qc = QuantumCircuit(2)
                 <CardTitle className="text-2xl">Recursos Adicionais</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="space-y-3">
-                  <p className="text-muted-foreground">
-                    Links para artigos científicos, vídeos explicativos, tutoriais
-                    interativos e documentação oficial.
-                  </p>
-                  <ul className="space-y-2 text-muted-foreground">
-                    <li>• Paper original</li>
-                    <li>• Tutoriais interativos</li>
-                    <li>• Vídeos explicativos</li>
-                    <li>• Documentação Qiskit</li>
-                  </ul>
-                </div>
+                {algorithm.resources ? (
+                  <div className="space-y-4">
+                    <p className="text-muted-foreground mb-4">
+                      Links para artigos científicos, vídeos explicativos, tutoriais
+                      interativos e documentação oficial.
+                    </p>
+                    {algorithm.resources.map((resource, index) => (
+                      <motion.a
+                        key={index}
+                        href={resource.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block p-4 rounded-lg border-2 border-purple-100 dark:border-purple-900 hover:border-purple-300 dark:hover:border-purple-700 hover:shadow-md transition-all bg-gradient-to-r from-purple-50/50 to-transparent dark:from-purple-950/20 dark:to-transparent"
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ delay: index * 0.1 }}
+                        viewport={{ once: true }}
+                        whileHover={{ x: 5 }}
+                      >
+                        <h3 className="font-semibold text-lg mb-1 text-purple-700 dark:text-purple-300">
+                          {resource.title}
+                        </h3>
+                        <p className="text-sm text-muted-foreground">
+                          {resource.description}
+                        </p>
+                      </motion.a>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="space-y-3">
+                    <p className="text-muted-foreground">
+                      Links para artigos científicos, vídeos explicativos, tutoriais
+                      interativos e documentação oficial.
+                    </p>
+                    <ul className="space-y-2 text-muted-foreground">
+                      <li>• Paper original</li>
+                      <li>• Tutoriais interativos</li>
+                      <li>• Vídeos explicativos</li>
+                      <li>• Documentação Qiskit</li>
+                    </ul>
+                  </div>
+                )}
               </CardContent>
             </Card>
           </AnimatedSection>
