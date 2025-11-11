@@ -224,7 +224,7 @@ qc = QuantumCircuit(2)
                       </SyntaxHighlighter>
                     </div>
                     <p className="text-muted-foreground mt-4">
-                      Em breve, exemplos de código comentados e explicados passo a passo.
+                      Este é um exemplo funcional de implementação usando Qiskit. Você pode executá-lo em um ambiente Python com Qiskit instalado.
                     </p>
                   </>
                 )}
